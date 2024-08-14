@@ -1,0 +1,32 @@
+---
+import Navbar from '../components/Navbar.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="eyeREST: A blink reminder app for comfortable vision during long computer sessions" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="author" content="eyeREST Team" />
+		<meta name="keywords" content="eye health, blink reminder, computer vision syndrome, eye comfort, productivity" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="eyeREST: A blink reminder app for comfortable vision during long computer sessions" />
+		<meta property="og:type" content="website" />
+	</head>
+	<body>
+		<Navbar />
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>

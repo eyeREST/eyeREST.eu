@@ -1,0 +1,14 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="mockup-browser bg-base-300 border-2 border-dashed h-full">
+  <div class="mockup-browser-toolbar">
+    <div class="input">{title}</div>
+  </div>
+  <div class="bg-base-200 flex justify-center px-4 py-8 h-full"><slot /></div>
+</div>

@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Window from "../components/Window.astro";
+import Code from "../components/Code.astro";
+import Prose from "../components/Prose.astro";
+import Setup from "../components/Setup.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import { Content as IntroContent } from "../content/intro/intro.mdx";
+import { Content as DownloadContent } from "../content/download/download.mdx";
+import { Content as AppContent } from "../content/app/app.mdx";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="eyeREST: Comfort vision">
+  <Hero />
+  <Grid>
+    <div class="col-span-1 md:col-span-2">
+      <video muted playsinline controls autoplay loop class="rounded-lg">
+        <source src="/demo.mp4" />
+      </video>
+    </div>
+    <Window title="On what devices is it available?">
+      <Prose>
+        <DownloadContent />
+      </Prose>
+    </Window>
+    <Window title="Why might you need this app?">
+      <Prose>
+        <IntroContent />
+      </Prose>
+    </Window>
+    <Window title="How can you use it?">
+      <Setup />
+    </Window>
+    <Window title="What does the app do?">
+      <Prose>
+        <AppContent />
+      </Prose>
+    </Window>
+    <div class="col-span-1 md:col-span-2">
+      <Code />
+    </div>
+  </Grid>
+  <Footer />
+</Layout>

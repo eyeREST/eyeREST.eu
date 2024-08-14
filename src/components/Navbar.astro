@@ -1,0 +1,31 @@
+---
+import Logo from "./Logo.astro";
+import ThemeController from "./ThemeController.astro";
+---
+
+<div class="navbar bg-base-200">
+  <div class="flex-1">
+    <button class="btn btn-ghost" id="logoButton">
+      <Logo class="h-5 fill-current" />
+      <span id="heartIcon" class="hidden"> 💕💕</span>
+    </button>
+  </div>
+  <div class="flex-end">
+    <ThemeController />
+  </div>
+</div>
+
+<script>
+  const logoButton = document.getElementById("logoButton");
+  const heartIcon = document.getElementById("heartIcon");
+  let timeout: number | null = null;
+  logoButton?.addEventListener("click", () => {
+    heartIcon?.classList.toggle("hidden", false);
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      heartIcon?.classList.toggle("hidden", true);
+    }, 1000);
+  });
+</script>

@@ -1,0 +1,62 @@
+<div class="hero bg-base-200 h-fit pb-6">
+  <div class="hero-content flex-col lg:flex-row lg:gap-12 max-w-screen-md">
+    <video 
+      class="max-w-xs rounded hidden dark:block"
+      autoplay
+      loop
+      muted
+      playsinline
+      playback-rate="0.5"
+      src="/avatar-light.mp4"
+    />
+    <video 
+      class="max-w-xs rounded dark:hidden"
+      autoplay
+      loop
+      muted
+      playsinline
+      playback-rate="0.5"
+      src="/avatar-dark.mp4"
+    />
+
+    <div>
+      <h1 class="text-3xl font-bold">
+        Allow your eyes to rest while staying focused.
+      </h1>
+      <p class="py-6">
+        A popup blink reminder that automatically disappears as soon you blink.
+      </p>
+      <div class="flex items-center gap-2">
+        {"╰┈➤˗ˏˋ"}
+        <button id="getAppButton" class="btn btn-neutral outline-dashed outline-2 outline-base-content">Get the app <span class="-scale-y-100 -rotate-180">🚂</span></button>
+        {"⋆.˚꩜ ."}
+      </div>
+    </div>
+  </div>
+</div>
+<dialog id="modalGetApp" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Select the store 🏃</h3>
+    <div class="pt-4">
+      <a href="https://apps.apple.com/it/app/eyerest-comfort-vision/id6476984614" class="btn btn-primary">App Store</a>
+      <a href="https://apps.microsoft.com/detail/9p09whdtwd93" class="btn btn-primary">Windows Store</a>
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const getAppButton = document.getElementById("getAppButton");
+  const isAppleDevice = /iPad|iPhone|iPod|Mac/.test(navigator.userAgent);
+  getAppButton?.addEventListener("click", () => {
+    if (isAppleDevice) {
+      window.open("https://apps.apple.com/it/app/eyerest-comfort-vision/id6476984614", "_blank");
+      return;
+    } 
+    (document.getElementById('modalGetApp') as HTMLDialogElement)?.showModal();
+  });
+</script>
